@@ -4,7 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Raleway';
-    /* outline: 4px solid green !important; */  
+    /* outline: 4px solid green !important;   */
 }
 
 a{
@@ -18,13 +18,60 @@ li{
     width: 1170px;
     margin: 0 auto;
 }
-
-
 header{
+    overflow: hidden;
     background: #161616;
     display: grid;
     grid-template-rows: 1fr 84px;
     overflow: hidden;
+}
+.header__nav-bar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 110px;
+    padding: 30px 16px;
+    position: fixed;
+    left: -120vw;
+    width: 100vw;
+    height: 100vh;
+    background-color: #161616;
+    z-index: 5;
+}
+.header__logo-exit{
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header__nav-bar-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    & ol a{
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16.44px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: white;
+    }
+}
+
+#nav-bar:checked ~ header .header__nav-bar{
+    left: 0;
+}
+.header__bg{
+    display: none;
+}
+.header__top-nav-bar__button{
+    display: none;
+}
+#nav-bar{
+    appearance: none;
+    position: fixed;
+    right: -10px;
 }
 
 .bottom{
@@ -33,13 +80,13 @@ header{
     grid-row: 2/3;
 }
 
-.header__top{
+.header__top, .footer__container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 0 30px 0;
 }
-.header__top-logo{
+.header__top-logo, .footer__top-logo{
     display: inline-block;
     & a{
         display: inline-block;
@@ -55,11 +102,16 @@ header{
 
     }
 }
-.header__top-nav-bar{
+.header__top-nav-bar,.footer__top-nav-bar{
     display: flex;
-    gap: 28px;
+    gap: 25px;
 }
-.header__top-nav-bar ol a{
+.icon{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+:is(.header__top-nav-bar,.footer__top-nav-bar) ol a{
     text-transform: uppercase;
 
     font-size: 13px;
@@ -115,11 +167,17 @@ header{
 .bottom__title-direction{
     margin-bottom: 30px;
     align-self: flex-end;
+    display: flex;
+    gap: 10px;
 
     font-size: 18px;
     font-weight: 400;
     line-height: 21.13px;
     color: white;
+    & button{
+        background-color: rgba(255, 255, 255, 0);
+        border: none;
+    }
 }
 .bottom-img{
     position: relative;
@@ -129,6 +187,7 @@ header{
     position: absolute;
     top: 81px;
 }
+
 
 
 
@@ -152,6 +211,7 @@ header{
 .useful-blocks{
     display: flex;
     align-items: stretch;
+    justify-content: center;
     flex-wrap: wrap;
     row-gap: 45px;
     column-gap: 30px;
@@ -176,7 +236,7 @@ header{
 .useful-block-img{
     & img{
         width: 370px;
-        height: 345px;
+        max-height: 345px;
     }
 }
 .useful-block-text{
@@ -264,7 +324,6 @@ header{
     margin-top: 122px;
     display: flex;
     align-items: center;
-    gap: 150px;
 }
 .map-rent-about, .composition-rent-about{
     & h3{
